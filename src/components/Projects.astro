@@ -1,0 +1,33 @@
+---
+const PROJECTS = [
+  {
+    title: "PokeAPI",
+    company: "Ministerio de las Mujeres, Géneros y Diversidades",
+    description:
+      "Here, you can see a list of all Pokemon and their carasteristics.",
+    link: "https://noeliarios.github.io/React-Pokedex/",
+    gitHub: "https://github.com/NoeliaRios/React-Pokedex",
+    image: "/projects/poke_print.webp",
+    tags: ["HTML, CSS, JavaScript"],
+  },
+];
+---
+
+{
+  PROJECTS.map(({ title, description, tags, image }) => (
+    <article>
+      <h3 class="font-3-xl font-semibold accent-orange mb-2">{title}</h3>
+      <p class="text-lg mb-4 text-pretty">{description}</p>
+      <ul>
+        {tags.map((tag) => (
+          <li>{tag}</li>
+        ))}
+      </ul>
+      <img
+        class="rounded shadow-black"
+        src={image}
+        alt={`Capura de pantalla del proyecto ${title}`}
+      />
+    </article>
+  ))
+}
