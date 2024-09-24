@@ -1,12 +1,15 @@
 ---
+import GitHubIcon from "../icons/GitHub.astro";
+import SocialPill from "./SocialPill.astro";
+import LinkIcon from "../icons/Link.astro";
+
 const PROJECTS = [
   {
-    title: "PokeAPI",
-    company: "Ministerio de las Mujeres, Géneros y Diversidades",
+    title: "Pokedex",
     description:
-      "Here, you can see a list of all Pokemon and their carasteristics.",
+      "Creado consumiendo la conocida PokeAPI, una biblioteca con buscador de Pokemon.",
     link: "https://noeliarios.github.io/React-Pokedex/",
-    gitHub: "https://github.com/NoeliaRios/React-Pokedex",
+    github: "https://github.com/NoeliaRios/React-Pokedex",
     image: "/projects/poke_print.webp",
     tags: ["HTML, CSS, JavaScript"],
   },
@@ -14,11 +17,11 @@ const PROJECTS = [
 ---
 
 {
-  PROJECTS.map(({ title, description, tags, image }) => (
+  PROJECTS.map(({ title, description, tags, image, link, github }) => (
     <article>
-      <h3 class="font-3-xl font-semibold accent-orange mb-2">{title}</h3>
+      <h2 class="font-3-xl font-semibold accent-orange mb-2">{title}</h2>
       <p class="text-lg mb-4 text-pretty">{description}</p>
-      <ul>
+      <ul class="flex gap-x-2 flex-row">
         {tags.map((tag) => (
           <li>{tag}</li>
         ))}
@@ -28,6 +31,16 @@ const PROJECTS = [
         src={image}
         alt={`Capura de pantalla del proyecto ${title}`}
       />
+      <div class="flex my-5 gap-x-2 ">
+        <SocialPill href={github}>
+          <GitHubIcon />
+          Github
+        </SocialPill>
+        <SocialPill href={link}>
+          <LinkIcon />
+          Sitio Web
+        </SocialPill>
+      </div>
     </article>
   ))
 }
